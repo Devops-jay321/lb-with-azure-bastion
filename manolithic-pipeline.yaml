@@ -50,12 +50,12 @@ stages:
           continueOnError: true
           displayName: Infra Cost Estimation
           inputs:
-          targetType: 'inline'
-          script: |
-            curl -fsSL https://raw.githubusercontent.com/infracost/infracost/master/scripts/install.sh | sh
-            tar xzf infracost-linux-amd64.tar.gz -C /tmp
-            /tmp/infracost --version
-            /tmp/infracost breakdown --path $(working-path) --format table --show-skipped --usage-file $(working-path)/infracost-usage.yml
+            targetType: 'inline'
+            script: |
+              curl -fsSL https://raw.githubusercontent.com/infracost/infracost/master/scripts/install.sh | sh
+              tar xzf infracost-linux-amd64.tar.gz -C /tmp
+              /tmp/infracost --version
+              /tmp/infracost breakdown --path $(working-path) --format table --show-skipped --usage-file $(working-path)/infracost-usage.yml
             
 
         - task: TerraformTask@5
