@@ -55,6 +55,7 @@ stages:
               Invoke-WebRequest https://github.com/infracost/infracost/releases/latest/download/infracost-windows-amd64.tar.gz -OutFile infracost.tar.gz
               tar -xvf infracost.tar.gz
               .\infracost.exe --version
+              infracost auth login
               .\infracost.exe breakdown --path $(working-path) --format table
             
 
