@@ -82,6 +82,26 @@ stages:
             debug: true
             dir: '$(working-path)'
 
+# ---------------- Stage 2a: checkov Scan (Checkov) ----------------
+- stage: SecurityScan
+  displayName: "Terraform Security Scan"
+  jobs:
+    - job: ScanningJob
+      displayName: "Scanning Terraform Code with Checkov"
+      pool:
+        name: jay
+      steps:
+        - task: UsePythonVersion@0
+          continueOnError: true
+          inputs:
+            version: '3.12.0'
+        - script: |
+              pip install checkov
+              displayName: 'Install Checkov'
+        - script: |
+            checkov -d . --framework terraform
+          displayName: 'Run Checkov Scan'
+
 # ---------------- Stage 3: Manual Validation ----------------
 - stage: ManualValidation
   displayName: "Manual Approval"
