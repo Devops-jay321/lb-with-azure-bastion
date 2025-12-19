@@ -83,7 +83,7 @@ stages:
             dir: '$(working-path)'
 
 # ---------------- Stage 2a: checkov Scan (Checkov) ----------------
-- stage: SecurityScan
+- stage: SecurityScan1
   displayName: "Terraform Security Scan"
   jobs:
     - job: ScanningJob
