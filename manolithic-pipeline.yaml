@@ -97,7 +97,7 @@ stages:
             version: '3.12.0'
         - script: |
               pip install checkov
-              displayName: 'Install Checkov'
+          displayName: 'Install Checkov'
         - script: |
             checkov -d . --framework terraform
           displayName: 'Run Checkov Scan'
