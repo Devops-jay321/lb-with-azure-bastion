@@ -431,6 +431,7 @@ sql-database_x = {
     max_size_gb  = 2
     sku_name     = "S0"
     enclave_type = "VBS"
+    zone_redundant = true
     tags = {
       environment = "dev"
       project     = "SQLProject"
