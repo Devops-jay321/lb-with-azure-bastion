@@ -99,7 +99,7 @@ stages:
               pip install checkov
           displayName: 'Install Checkov'
         - script: |
-            checkov -d . --framework terraform
+            checkov -d $(working-path) --framework terraform
           displayName: 'Run Checkov Scan'
 
 # ---------------- Stage 3: Manual Validation ----------------
