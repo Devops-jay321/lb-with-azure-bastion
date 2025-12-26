@@ -6,6 +6,7 @@ variable "sql-database" {
         max_size_gb  = number
         sku_name     = string
         enclave_type = string
+        zone_redundant = bool
         tags         = map(string)
     }))
 }
