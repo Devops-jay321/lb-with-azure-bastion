@@ -94,7 +94,6 @@ stages:
         name: jay
       steps:
         - task: UsePythonVersion@0
-          continueOnError: true
           inputs:
             version: '3.12.0'
         - script: |
@@ -103,10 +102,12 @@ stages:
         - script: |
             checkov -d $(working-path) --framework terraform
           displayName: 'Run Checkov Scan'
+          continueOnError: true
 
 # ---------------- Stage 3: Manual Validation ----------------
 - stage: ManualValidation
   displayName: "Manual Approval"
+  condition: always()
   jobs:
     - job: ManualValidationJob
       displayName: "Manual Validation"
