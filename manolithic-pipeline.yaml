@@ -9,6 +9,7 @@ pool:
 
 variables:
   working-path: $(System.DefaultWorkingDirectory)/Dev
+  group: Infracost_API_KEY
 
 parameters:
   - name: environments
@@ -56,7 +57,7 @@ stages:
               tar -xvf infracost.tar.gz
               .\infracost.exe --version
               env:
-                Infracost_API_KEY: $(Infracost_API_KEY)
+                INFRACOST_API_KEY: $(Infracost_API_KEY)
               .\infracost.exe breakdown --path $(working-path) --format table
             
 
