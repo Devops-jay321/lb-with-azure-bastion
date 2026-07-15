@@ -56,9 +56,14 @@ stages:
             script: |
               Invoke-WebRequest https://github.com/infracost/infracost/releases/latest/download/infracost-windows-amd64.tar.gz -OutFile infracost.tar.gz
               tar -xvf infracost.tar.gz
+
+              Write-Host "InfraCost Version"
               .\infracost.exe --version
+
               $env:INFRACOST_API_KEY = "$(Infracost_API_KEY)"
-              .\infracost.exe breakdown --path $(working-path) --format table
+
+              Write-Host "Running InfraCost..."
+              .\infracost.exe breakdown --path $(working-path) --terraform-force-cli --format table
             
 
         - task: TerraformTask@5
