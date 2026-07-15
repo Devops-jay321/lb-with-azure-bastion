@@ -63,7 +63,7 @@ stages:
               $env:INFRACOST_API_KEY = "$(Infracost_API_KEY)"
 
               Write-Host "Running InfraCost..."
-              .\infracost.exe breakdown --path $(working-path) --terraform-force-cli --format table
+              .\infracost.exe breakdown --path $(working-path) --format table
             
 
         - task: TerraformTask@5
