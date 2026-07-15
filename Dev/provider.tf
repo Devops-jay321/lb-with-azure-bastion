@@ -10,7 +10,7 @@ terraform {
 # Terraform Provider Block
 provider "azurerm" {
   features {}
-  subscription_id = "845670d0-6329-46a7-97a7-fe36dbdce51b"
+  subscription_id = "79b1c511-0674-4504-a5f8-ccf3e6989105"
 }
 # terraform {
 #   backend "azurerm" {
